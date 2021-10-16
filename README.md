@@ -1,7 +1,6 @@
 <h1 align="center">DiscordActivity</h1>
-========
-Discord activities in nextcord. 
---------
+
+<h1>Discord activities in nextcord.</h1> 
 
 
 #### pip install DicsordActivity
