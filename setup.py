@@ -13,7 +13,7 @@ setup(
 	description="Use discord activities with your bot!",
 	long_description=README,
 	long_description_content_type="text/markdown",
-	url="https://github.com/MagM1go/smr",
+	url="https://github.com/MagM1go/DiscordActivity",
 	packages=find_packages(),
 	classifiers=[
 		"Programming Language :: Python :: 3.10",
