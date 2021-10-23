@@ -1,9 +1,0 @@
-LICENSE
-README.md
-setup.py
-DiscordActivity/__init__.py
-DiscordActivity/activity.py
-DiscordActivity.egg-info/PKG-INFO
-DiscordActivity.egg-info/SOURCES.txt
-DiscordActivity.egg-info/dependency_links.txt
-DiscordActivity.egg-info/top_level.txt
