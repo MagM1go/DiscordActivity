@@ -27,7 +27,7 @@ class AsyncActivity(Sessions):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
     
-    async def get_activity(self, activity_name: str, author: nextcord.Member):
+    async def get_activity(self, activity_name: str, author: disnake.Member):
         data = {
             'max_age': 604800,
             'max_uses': 100,
@@ -37,7 +37,7 @@ class AsyncActivity(Sessions):
             'validate': None
         }
         async with self._async_session.post(
-            f"https://discord.com/api/v8/channels/{author.voice.channel.id}/invites", 
+            f"https://discord.com/api/v10/channels/{author.voice.channel.id}/invites", 
             json=data, 
             headers={'Authorization': f'Bot {self.token}', 'Content-Type': 'application/json'}
         ) as response:
@@ -49,7 +49,7 @@ class SyncActivity(Sessions):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def get_activity(self, activity_name: str, author: nextcord.Member):
+    def get_activity(self, activity_name: str, author: disnake.Member):
         data = {
             'max_age': 604800,
             'max_uses': 100,
@@ -58,7 +58,7 @@ class SyncActivity(Sessions):
             'temporary': False,
             'validate': None
         }
-        code = self._session.post(f"https://discord.com/api/v8/channels/{author.voice.channel.id}/invites", 
+        code = self._session.post(f"https://discord.com/api/v10/channels/{author.voice.channel.id}/invites", 
                                     json=data, 
                                     headers={'Authorization': f'Bot {self.token}', 'Content-Type': 'application/json'}
         )
