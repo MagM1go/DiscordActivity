@@ -1,6 +1,6 @@
 import aiohttp
-import nextcord
-from nextcord.ext import commands
+import disnake
+from disnake.ext import commands
 import requests
 
 
@@ -36,9 +36,10 @@ class AsyncActivity(Sessions):
             'temporary': False,
             'validate': None
         }
-        async with self._async_session.post(f"https://discord.com/api/v8/channels/{author.voice.channel.id}/invites", 
-                                    json=data, 
-                                    headers={'Authorization': f'Bot {self.token}', 'Content-Type': 'application/json'}
+        async with self._async_session.post(
+            f"https://discord.com/api/v8/channels/{author.voice.channel.id}/invites", 
+            json=data, 
+            headers={'Authorization': f'Bot {self.token}', 'Content-Type': 'application/json'}
         ) as response:
             code = await response.json()
         return code['code']
