@@ -1,6 +1,6 @@
 <h1 align="center">DiscordActivity</h1>
 
-<h1>Discord activities in nextcord.</h1> 
+<h1>Discord activities in disnake.</h1> 
 
 
 #### pip install DicsordActivity
@@ -11,8 +11,8 @@ Sync Example
 --------------
 
 ```Python
-import nextcord
-from nextcord.ext import commands
+import disnake
+from disnake.ext import commands
 
 from DiscordActivity import SyncActivity
 
@@ -31,8 +31,8 @@ Async example
 --------------
 
 ```Python
-import nextcord
-from nextcord.ext import commands
+import disnake
+from disnake.ext import commands
 
 from DiscordActivity import AsyncActivity
 
