@@ -3,7 +3,7 @@
 <h1>Discord activities in disnake.</h1> 
 
 
-#### pip install DicsordActivity
+#### pip install DiscordActivity
 
 
 
