@@ -1,1 +1,1 @@
-from .activity import AsyncActivity, SyncActivity
+from .activity import Activity
