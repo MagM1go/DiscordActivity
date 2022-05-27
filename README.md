@@ -6,43 +6,18 @@
 #### pip install DiscordActivity
 
 
-
-Sync Example
---------------
-
 ```Python
 import disnake
 from disnake.ext import commands
-
-from DiscordActivity import SyncActivity
-
+from DiscordActivity import Activity
 
 bot = commands.Bot(command_prefix="!")
-activity = SyncActivity(token='your-bot-token')
+activities = Activity(bot=bot)
 
 @bot.command()
-async def fishing(ctx):
-    await ctx.send(f"Go fishing!\nhttps://discord.gg/{activity.get_activity(activity_name='fishing', author=ctx.author)}")
-
-bot.run("your-bot-token")
-```
-
-Async example
---------------
-
-```Python
-import disnake
-from disnake.ext import commands
-
-from DiscordActivity import AsyncActivity
-
-
-bot = commands.Bot(command_prefix="!")
-activity = AsyncActivity(token='your-bot-token')
-
-@bot.command()
-async def fishing(ctx):
-    await ctx.send(f"Go fishing!\nhttps://discord.gg/{await activity.get_activity(activity_name='fishing', author=ctx.author)}")
+async def fishing(ctx, voice: disnake.VoiceChannel, name: str):
+    activity = await activities.send_activity(name=name, voice=voice)
+    await ctx.reply(f"Go fishing!\nhttps://discord.gg/{activity['code']}")
 
 bot.run("your-bot-token")
 ```
