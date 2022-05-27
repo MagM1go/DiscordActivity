@@ -1,9 +1,9 @@
 <h1 align="center">DiscordActivity</h1>
 
-<h1>Discord activities in disnake.</h1> 
+<h1>Discord activities on disnake (d.py fork).</h1> 
 
 
-#### pip install DiscordActivity
+### pip install DiscordActivity
 
 
 ```Python
