@@ -9,6 +9,8 @@ class ActivityRequest(ABC):
 
 class Config:
 
+    BASE_URl = 'https://discord.com/api/v10'
+
     def activity(self, target_application_id: int, max_age: int = 604800, max_uses: int = 100) -> None:
         return {
             'max_age': max_age,

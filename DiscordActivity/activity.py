@@ -17,13 +17,14 @@ class Activity:
     
     def __init__(self, bot):
         self.__token = bot.http.token
+        self.__config = Config()
     
     async def send_activity(self, voice: disnake.VoiceChannel, name: str):
         requester = Request(
-            activities_config=Config(),
+            activities_config=self.__config,
             request_data={
                 "method": "POST", 
-                "url": f"https://discord.com/api/v10/channels/{voice.id}/invites",
+                "url": f"{self.config.BASE_URl}/channels/{voice.id}/invites",
                 "headers": {'Authorization': f'Bot {self.__token}', 'Content-Type': 'application/json'}
             }
         )
