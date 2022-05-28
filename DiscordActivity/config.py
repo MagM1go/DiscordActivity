@@ -21,10 +21,11 @@ class Config:
     
 class Request(aiohttp.ClientSession, ActivityRequest):
 
-    def __init__(self, **kwargs):
-        self.request = kwargs.get('request')
-        self.activities_config = kwargs.get('activities_config')
+    def __init__(self, request_data: dict, activities_config: Config):
+        self.request_data = request_data
+        self.activities_config = activities_config
+        super().__init__()
     
     async def post_request(self, _id: int) -> None:
-        response = await self.request(**self.request, json=self.activities_config.activity(target_application_id=_id))
+        response = await self.request(**self.request_data, json=self.activities_config.activity(target_application_id=_id))
         return await response.json()

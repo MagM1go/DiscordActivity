@@ -21,7 +21,7 @@ class Activity:
     async def send_activity(self, voice: disnake.VoiceChannel, name: str):
         requester = Request(
             activities_config=Config(),
-            request={
+            request_data={
                 "method": "POST", 
                 "url": f"https://discord.com/api/v10/channels/{voice.id}/invites",
                 "headers": {'Authorization': f'Bot {self.__token}', 'Content-Type': 'application/json'}
