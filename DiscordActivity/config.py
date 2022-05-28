@@ -26,5 +26,5 @@ class Request(aiohttp.ClientSession, ActivityRequest):
         self.__config = kwargs.get('config')
     
     async def post_request(self, _id: int) -> None:
-        response = await self.request(**self.request, json=self.__config.activity(_id))
+        response = await self.request(**self.request, json=self.__config.activity(target_application_id=_id))
         return await response.json()
