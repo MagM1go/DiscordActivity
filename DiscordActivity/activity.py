@@ -1,7 +1,6 @@
 import disnake
-from disnake.ext import commands
 
-from .config import Request
+from .config import Request, Config
 
 APPS = { 
     'youtube': 755600276941176913,
@@ -21,6 +20,7 @@ class Activity:
     
     async def send_activity(self, voice: disnake.VoiceChannel, name: str):
         requester = Request(
+            config=Config(),
             request={
                 "method": "POST", 
                 "url": f"https://discord.com/api/v10/channels/{voice.id}/invites",
