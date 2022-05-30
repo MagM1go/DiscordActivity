@@ -15,7 +15,7 @@ class Config:
         'doodle-crew': 878067389634314250,
     }
 
-    def activity(self, target_application_id: int, max_age: int = 604800, max_uses: int = 100) -> None:
+    def activity(self, target_application_id: int, max_age: int = 604800, max_uses: int = 100) -> dict:
         return {
             'max_age': max_age,
             'max_uses': 100,
@@ -32,7 +32,6 @@ class Request:
         self.request_data = request_data
         self.activities_config = activities_config
         self._http = aiohttp.ClientSession()
-        super().__init__()
     
     async def post_request(self, _id: int) -> None:
         response = await self._http.request(**self.request_data, json=self.activities_config.activity(target_application_id=_id))
