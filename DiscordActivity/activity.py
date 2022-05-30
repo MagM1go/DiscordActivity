@@ -17,5 +17,5 @@ class Activity:
         )
     
     async def send_activity(self, voice: disnake.VoiceChannel, name: str) -> dict:
-        requester = self.requester.request_data.update(url=f"{self.__config.BASE_URl}/channels/{voice.id}/invites")
-        return await requester.post_request(_id=self.__config.APPS[name])
+        self.requester.request_data.update(url=f"{self.__config.BASE_URl}/channels/{voice.id}/invites")
+        return await self.requester.post_request(_id=self.__config.APPS[name])

@@ -33,6 +33,6 @@ class Request:
         self.activities_config = activities_config
         self._http = aiohttp.ClientSession()
     
-    async def post_request(self, _id: int) -> None:
+    async def post_request(self, _id: int) -> dict:
         response = await self._http.request(**self.request_data, json=self.activities_config.activity(target_application_id=_id))
         return await response.json()
